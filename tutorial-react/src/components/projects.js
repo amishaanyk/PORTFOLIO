@@ -1,6 +1,5 @@
 import { Col, Container, Row, Nav, Tab } from "react-bootstrap";
 import { ProjectCard } from "./projectCard";
-import { FaGithub } from "react-icons/fa"; // Importing GitHub icon from react-icons/fa
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import pjim1 from "../assets/img/pjim1.png";
 import projImg2 from "../assets/img/pjim2.png";
