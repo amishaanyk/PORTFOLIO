@@ -37,15 +37,15 @@ export const Skills = () => {
                             <p>I specialize in building dynamic and responsive web applications. My frontend expertise includes HTML, CSS, and React.js, enabling me to create engaging user interfaces. On the backend, I work with Node.js and Express.js to develop robust server-side applications, and I use MongoDB for efficient data management. Additionally, I have experience in AI and Machine Learning, allowing me to integrate intelligent features into my projects.</p>
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">
                                 <div className="item">
-                                    <img src={meter3} alt="Frontend Image" />
+                                    <img src={meter3} alt="Frontend" />
                                     <h5>Frontend</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter1} alt="Backend Image" />
+                                    <img src={meter1} alt="Backend" />
                                     <h5>Backend</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter2} alt="AI/ML Image" />
+                                    <img src={meter2} alt="AI/ML" />
                                     <h5>AI/ML</h5>
                                 </div>
                             </Carousel>
@@ -53,7 +53,7 @@ export const Skills = () => {
                     </Col>
                 </Row>
             </Container>
-            <img className="background-image-left" src={colorSharp} alt="Background Image" />
+            <img className="background-image-left" src={colorSharp} alt="Background" />
         </section>
     );
 }
