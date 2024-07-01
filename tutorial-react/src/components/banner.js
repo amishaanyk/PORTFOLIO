@@ -11,22 +11,7 @@ export const Banner = () => {
     const toRotate = ["Web Developer", "AI/ML Enthusiast"];
     const period = 2000;
 
-    useEffect(() => {
-        let ticker = setInterval(() => {
-            tick();
-        }, period);
-
-        return () => { clearInterval(ticker) };
-    }, []);
-
-    const handleClick = (type) => {
-        if (type === 'github') {
-            window.open('https://github.com/amishaanyk', '_blank');
-        } else if (type === 'resume') {
-            window.open('https://drive.google.com/file/d/1aeX0V1Znm20uHgBfoUJbcv16TFuNJDfk/view?usp=sharing', '_blank');
-        }
-    }  
-
+    
     const tick = () => {
         let i = loopNum % toRotate.length;
         let fullText = toRotate[i];
@@ -45,6 +30,22 @@ export const Banner = () => {
             setLoopNum(loopNum + 1);
         }
     }
+
+    useEffect(() => {
+        let ticker = setInterval(() => {
+            tick();
+        }, period);
+
+        return () => { clearInterval(ticker) };
+    }, []);
+
+    const handleClick = (type) => {
+        if (type === 'github') {
+            window.open('https://github.com/amishaanyk', '_blank');
+        } else if (type === 'resume') {
+            window.open('https://drive.google.com/file/d/1aeX0V1Znm20uHgBfoUJbcv16TFuNJDfk/view?usp=sharing', '_blank');
+        }
+    }  
 
     return (
         <section className="banner" id="home">
