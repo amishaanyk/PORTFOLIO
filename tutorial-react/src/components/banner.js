@@ -8,17 +8,16 @@ export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const [text, setText] = useState('');
-    const [delta, setDelta] = useState(300 - Math.random() * 100);
     const toRotate = ["Web Developer", "AI/ML Enthusiast"];
     const period = 2000;
 
     useEffect(() => {
         let ticker = setInterval(() => {
             tick();
-        }, delta);
+        }, period);
 
         return () => { clearInterval(ticker) };
-    }, [text]);
+    }, []);
 
     const handleClick = (type) => {
         if (type === 'github') {
@@ -26,7 +25,7 @@ export const Banner = () => {
         } else if (type === 'resume') {
             window.open('https://drive.google.com/file/d/1aeX0V1Znm20uHgBfoUJbcv16TFuNJDfk/view?usp=sharing', '_blank');
         }
-    }
+    }  
 
     const tick = () => {
         let i = loopNum % toRotate.length;
@@ -36,16 +35,14 @@ export const Banner = () => {
         setText(updatedText);
 
         if (isDeleting) {
-            setDelta(prevDelta => prevDelta / 2);
+            setLoopNum(loopNum + 1);
         }
 
         if (!isDeleting && updatedText === fullText) {
             setIsDeleting(true);
-            setDelta(period);
         } else if (isDeleting && updatedText === '') {
             setIsDeleting(false);
             setLoopNum(loopNum + 1);
-            setDelta(500);
         }
     }
 
@@ -58,11 +55,8 @@ export const Banner = () => {
                             {({ isVisible }) =>
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <span className="tagline">Welcome to my Portfolio</span>
-                                    <>
-                                        <h1>{`Hi, I'm Amisha!`}</h1>
-                                        <h2><span className="wrap">{text}</span></h2>
-                                    </>
-                                    <p>I'm a Final Year Student at IIIT Bhubaneswar with experience in JavaScript and AI/ML, and expertise in frameworks like ReactJS and NodeJS. I'm a quick learner and can collaborate to create efficient, scalable, and user-friendly solutions that solve real-world problems.</p>
+                                    <><h1>{`Hi I'm Amisha ! `}</h1><h2><span className="wrap">{text}</span></h2></>
+                                    <p>I'm a Final Year Student at IIIT Bhubaneswar with experience in Javascript and AI/ML, and expertise in frameworks like ReactJS and NodeJS. I'm a quick learner and can collaborate to create efficient, scalable and user-friendly solutions that solve real-world problems.</p>
                                     <div className="d-flex">
                                         <Button variant="dark" className="me-2" onClick={() => handleClick('github')}>GitHub</Button>
                                         <Button variant="secondary" onClick={() => handleClick('resume')}>Resume</Button>
@@ -75,13 +69,12 @@ export const Banner = () => {
                         <TrackVisibility>
                             {({ isVisible }) =>
                                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                                    <img src={headerImg} alt="Header Image" />
-                                </div>
-                            }
+                                    <img src={headerImg} alt="Header Img" />
+                                </div>}
                         </TrackVisibility>
                     </Col>
                 </Row>
             </Container>
         </section>
     );
-};
+}
